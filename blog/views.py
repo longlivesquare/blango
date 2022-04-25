@@ -2,10 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from blog.models import Post
 from blog.forms import CommentForm
+#from django.views.decorators.cache import cache_page
+#from django.views.decorators.vary import vary_on_cookie
 import logging
 
 logger = logging.getLogger(__name__)
 # Create your views here.
+
 
 def index(request):
   posts = Post.objects.filter(published_at__lte=timezone.now())
