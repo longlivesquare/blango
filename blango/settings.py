@@ -50,6 +50,7 @@ class Dev(Configuration):
       'crispy_forms',
       'crispy_bootstrap5',
       "debug_toolbar",
+      'blango_auth',
       'blog',
   ]
 
@@ -115,6 +116,8 @@ class Dev(Configuration):
           'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
       },
   ]
+
+  AUTH_USER_MODEL = 'blango_auth.User'
 
   PASSWORD_HASHERS = [
       'django.contrib.auth.hashers.Argon2PasswordHasher',
@@ -189,7 +192,7 @@ class Dev(Configuration):
     },
 }
 
-  INTERNAL_IPS = ["192.168.10.93"]
+  INTERNAL_IPS = ["192.168.10.226"]
 
 class Prod(Dev):
   DEBUG = values.BooleanValue(True)
